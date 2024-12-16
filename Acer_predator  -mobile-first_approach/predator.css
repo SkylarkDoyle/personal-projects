@@ -1,0 +1,938 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Teco-Thin';
+    src: url(./fonts/TecoSerif-Thin.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Teco-Light';
+    src: url(./fonts/TecoSerif-Light.ttf);
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Teco-Bold';
+    src: url(./fonts/TecoSerif-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+body{
+    background-color: rgb(33, 33, 33);
+}
+
+.wrapper{
+    width: 100%;
+}
+
+.grid{
+    display: grid;
+    grid-column: repeat(8, 1fr);
+    width: 100%;
+}
+
+.firstHeader{
+    display: none;
+    width: 100%;
+    padding: 5px;
+}
+
+
+.firstHeaderBrand{
+    grid-column: 1/3;
+    margin-left: 20px;
+}
+
+.firstHeaderBrand svg{
+    width: 120px;
+    height: 40px;
+    fill: rgb(255, 255, 255);
+    opacity: 0.4;
+    
+}
+
+.firstHeaderBrand svg:nth-child(1){
+    width: 60px;
+}
+
+.firstHeaderBrand .divider{
+   display: inline-block;
+   margin: 0 0 10px 5px;
+   height: 40%;
+   border-right: 1px solid rgb(255, 255, 255, 0.1);
+}
+
+.locSign{
+    grid-column: 8/9;
+    display: flex;
+    align-content: flex-end;
+}
+
+.locSign p, .locSign a {
+    border-right: 2px solid rgb(255, 255, 255, 0.1);
+    font-family: 'Teco-Light';
+    text-align: center;
+    align-self: center;
+    padding-right: 20px;
+    font-size:20px;
+    margin-left: 10px;
+    display: block;
+    color: rgb(255, 255, 255, 0.4);
+}
+
+.locSign a:nth-child(3) {
+    border-right:none;
+
+}
+
+.locSign p img{
+    width: 25px;
+    height: 100%;
+}
+
+
+#sidebar{
+   opacity: 0;
+    position: fixed;
+	width: 5%;
+	left: 0;
+	bottom: 0;
+	height: 100vh;
+	background-color: rgb(33, 33, 33);
+	z-index: 1000;
+	transition: all 0.2s ease-in;
+}
+
+#sidebar ul{
+    padding-top: 50px; 
+    overflow: hidden;
+    visibility: visible;
+}
+
+#sidebar ul li{
+      font-family: Teco-Bold;
+      list-style: none;
+      height: 40px;
+    white-space: nowrap;
+    padding: 0 20px;
+    text-align: left;
+    color: #656565;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+#sidebar ul li:hover{
+  color: #fff;
+}
+
+hr{
+   background-color: #656565;
+   height: 1px;
+   border: 0;
+   width: 80%;
+   margin: 0 auto;
+}
+
+
+#sidebar ul li span{
+float: right;
+font-size: 30px;
+font-family: Teco;
+transition: all 0.5s ease-in-out;
+}
+
+#sidebar svg{
+    display: block;
+    width: 50%;
+    height: 50px;
+    fill: rgb(255, 255, 255, 0.5);
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#sidebar svg:hover{
+    fill: rgb(255, 255, 255);
+}
+
+.header {
+    border-top: 1px solid rgb(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    background-color: #111;
+}
+
+.header .logo{
+    width: 200px;
+    margin-left: 20px;
+    grid-column: 1/2;
+    cursor: pointer;
+}
+
+.header .header-links{
+    display: none;
+    grid-column: 2/4;
+    align-self: center;
+    margin-left: 50px;
+}
+
+.header .header-links a{
+ padding-right: 30px;
+ color: rgb(255, 255, 255, 0.4);
+ font-family: Teco-Light;
+ font-size: 22px;
+}
+
+.header .hamburger{
+    display: block;
+    align-self: center;
+      grid-column: 7/9;
+      cursor: pointer;
+   }
+
+.lies-within{
+    position: relative;
+      height: 600px;
+       background-image: url(img/itlieswithin-mobile.jpg);
+       background-repeat: no-repeat;
+       background-size: 100%;
+}
+
+.lies-within .content{
+     position: absolute;
+     right: 0;
+     left: 0;
+     bottom: 5%;
+ }  
+      
+.lies-within h1, .lies-within p, .lies-within a, 
+.pers h2, .pers h6, .pers p, .pers a,
+.fav-game h2, .fav-game a
+{
+  color: #fff;
+  text-align: center;
+  
+}
+   
+.lies-within h1{
+    font-family: Teco-bold;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+
+.lies-within p{
+    font-family: Teco-light;
+    line-height: 50px;
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 0 0 30px;
+}
+
+
+.lies-within a, .pers a, .fav-game a{
+    display: block;
+    font-family: Teco-light;
+    width: 60%;
+    margin: 0 auto;
+    font-size: 25px;
+    background: transparent;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(245, 245, 245);
+    padding: 10px 50px;
+    transition: all 0.2s;
+}
+
+.lies-within a:hover, .pers a:hover, .fav-game a:hover {
+    background-color: #fff;
+    color: #111;
+ }
+
+.pers{
+    position: relative;
+       height: 600px;
+       background-image: url(img/GPC_mobile.jpg);
+       background-repeat: no-repeat;
+       background-size: 100%;
+}
+
+.pers .content{
+     position: absolute;
+     right: 0;
+     left: 0;
+     top: 5%;
+ }  
+      
+   
+.pers h2, .fav-game h2{
+    font-family: Teco-light;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.pers h6{
+    font-family: Teco-light;
+    font-size: 30px;
+    font-weight:400;
+    letter-spacing: 2px;
+}
+
+.pers p{
+    font-family: Teco-light;
+    line-height: 50px;
+    font-size: 25px;
+    margin: 0 0 30px;
+}
+
+
+.fav-game{
+    background-image: url(img/herobanner-small.jpg);
+    position: relative;
+    background-position: center;
+   height: 450px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.fav-game .content{
+    position: absolute;
+     top: 25%;
+     right: 0;
+     left: 0;
+}
+
+.fav-game img{
+    display: block;
+    margin: 30px auto;
+    max-width: 350px;
+    width: 100%;
+}
+
+.helios, .triton, .orion,
+ .monitors, .gadgets, .chair{
+background: linear-gradient( 180deg, #434343, 1%, #000000);
+}
+
+
+
+.helios h2, .triton h2, .orion h2,
+.monitors h2, .gadgets h2, .chair h2{
+    font-family: Teco-Bold;
+    text-align: center;
+    color: #fff;
+    padding: 40px 0 25px;
+    font-size: 28px;
+}
+
+.helios p, .triton p, .orion p,
+.monitors p, .gadgets p, .chair p{
+    font-family: Teco-Light;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    font-size: 20px;
+}
+
+.predator {
+    margin: 0 auto;
+    padding: 30px 40px;
+}
+
+.predator a span{
+    font-family: Teco-Light;
+    background-color: #fff;
+    color: #000;
+    display: block;
+    width: 40%;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 16px auto 0;
+    padding: 0 10px;
+    text-align: center;
+
+}
+
+.predator a:first-child {
+    grid-column: 1/3;
+
+}
+
+.predator a:nth-child(2) {
+    grid-column: 6/8;
+    margin-top: 30px;
+}
+
+.predator a:last-child {
+    grid-row: 2;
+    grid-column: 3/6;
+    text-align: center;
+    align-self:center;
+}
+
+.predator a *{
+    color: #fff;
+    font-family: Teco-Thin;
+    font-size: 23px;
+    text-align: center;
+    max-width: 130%;
+    margin: 15px auto;
+    align-self: center;
+    transition: all 0.5s;
+}
+
+.predator a img:hover{
+    max-width: 135%;
+}
+
+.predator-triton {
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+.predator-triton a span{
+    font-family: Teco-Light;
+    background-color: #fff;
+    color: #000;
+    display: block;
+    max-width: 20%;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 16px auto;
+    text-align: center;
+}
+
+
+.predator-triton a:first-child {
+    grid-column: 1/4;
+}
+
+.predator-triton a:nth-child(2) {
+    grid-column: 6/9;
+}
+
+.predator-triton a:nth-child(3) {
+    grid-column: 1/4;
+    grid-row: 2;
+}
+
+.predator-triton a:last-child {
+    grid-row: 2;
+    grid-column: 6/9;
+}
+
+.predator-triton a *{
+    color: #fff;
+    font-family: Teco-Thin;
+    font-size: 23px;
+    text-align: center;
+    max-width: 100%;
+    margin: 15px auto;
+    transition: all 0.5s;
+}
+
+.predator-triton a img:hover{
+    max-width: 105%;
+}
+
+.chair{
+    padding: 30px ;
+}
+
+.chair a *{
+    color: #fff;
+    font-family: Teco-Thin;
+    font-size: 23px;
+    text-align: center;
+    margin: 15px auto;
+    display: block;
+    max-width: 40%;
+    transition: all 0.5s;
+}
+
+.chair a img:hover{
+    max-width: 43%;
+}
+
+.chair a span{
+    font-family: Teco-Light;
+    background-color: #fff;
+    color: #000;
+    display: block;
+    max-width: 10%;
+    font-size: 15px;
+    line-height: 20px;
+    margin: 16px auto;
+    text-align: center;
+}
+
+
+.more-stuff a{
+    position: relative;
+    padding: 0 0 400px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: background 1s ;
+}
+
+.more-stuff a:hover{
+   background-size: 105%;
+}
+
+
+.more-stuff a:first-child{
+background-image: url(img/S16_IEM.jpg);
+}
+
+.more-stuff a h3{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10%;
+    color: #fff;
+    font-family: Teco-Thin;
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-align: center;
+}  
+
+.more-stuff a:nth-child(2){
+background-image: url(img/r6invitational2021.jpg);
+}
+
+.more-stuff a:nth-child(3){
+background-image: url(img/tertiarybanner-predatorverse.jpg);
+}
+
+.more-stuff a:nth-child(4){
+background-image: url(img/Planet9.jpg);
+}
+
+footer .footer-links{
+padding: 40px 0;
+color: rgb(255, 255, 255, 0.4);
+ font-family: Teco-Light;
+ font-size: 22px;
+}
+
+
+.footer-header{
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s;
+}    
+
+
+.footer-header h5{
+   font-size: 20px;
+   text-align: center;
+   grid-column: 2/6;
+   font-family: Teco-Thin;
+   align-self: center;
+} 
+
+.footer-header h5:hover{
+    color: #fff;
+}
+
+.footer-header span{
+    display: block;
+   grid-column: 6/7;
+   font-size: 60px;
+   font-family: Teco-Thin;
+   align-self: center;
+   text-align: center;
+   transition: all 0.1s;
+   transform: rotate(0deg);
+ }
+ 
+ .footer-links ul li{
+    background-color: #212121;
+    display: none;
+    text-align: center;
+  font-family: Teco-Light;
+  font-size: 15px;
+  line-height: 50px;
+  cursor: pointer;
+
+  } 
+
+
+.footer-links ul li:hover{
+  color: rgb(255, 255, 255, 0.8);
+} 
+
+  .footer-logos{
+      display: grid;
+   background-color: #44444459;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 auto;
+      padding: 30px 0;
+      border-bottom: 1px solid #434343;
+  }
+
+  .footer-logos svg{
+      margin: 0 auto;
+    width: 150px;                       
+    height: 50px;
+    fill: rgb(255, 255, 255);
+    opacity: 0.4;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .footer-logos svg:hover{
+  opacity: 1;
+}
+
+
+  .footer-logos svg:nth-child(1){
+    width: 70px;
+}
+
+.footer-sm img{
+    filter: brightness(90%);
+    width: 35px;
+    margin: 20px 10px 50px;
+    cursor: pointer;
+}
+
+.footer-sm img:hover{
+    filter: brightness(100%);
+}
+
+.footer-sm-cp {
+    background-color: #44444459;
+    padding: 30px;
+}
+
+.footer-sm-cp p, .footer-sm-cp * {
+    margin: 20px 0 0;
+    color: rgb(255, 255, 255, 0.4);
+    text-align: center;
+    font-family: Teco-Thin;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+}
+  
+.footer-sm-cp a {
+    margin: 0 auto;
+    display: block;
+}
+
+.footer-sm-cp a:hover {
+   color: rgb(255, 255, 255, 0.8);
+}
+
+.footer-sm-cp a img{
+    width: 15px;
+}
+
+ .bottom-arr{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 90px;
+    width: 90px;
+    background-color: rgba(120,120,120,0.5);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 2px 2px rgb(0 0 0 / 40%);
+} 
+
+ .bottom-arr:hover{
+    background-color: rgba(120,120,120,0.8);
+
+ } 
+
+ .bottom-arr img{
+    height: 70px;
+    width: 70px;
+    margin: 10px auto;
+    display: block;
+    transition: all 0.3s ease;
+ } 
+
+ .bottom-arr img:hover{
+    margin: 7px auto;
+
+ } 
+
+
+@media screen and (min-width: 640px) {
+    
+    .lies-within{ 
+        height: 0;
+        padding: 180px 0;
+        width: 100%;
+        background-image: url(img/itlieswithin.jpg);
+    }
+
+    .lies-within .content{
+       display: inline-block;
+        top: 20%;
+        right: 0;
+        left: 30%;
+        bottom: 0;
+    }  
+
+    .lies-within a, .pers a, .fav-game a{
+        width: 30%;
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+
+.pers{
+        height: 0;
+        padding: 180px 0;
+        background-image: url(img/GPC.jpg);
+ }
+ 
+ .pers .content{
+     display: inline-block;
+      top: 20%;
+      right: 0;
+      left: 0;
+      bottom: 0;
+  }  
+ 
+  .fav-game{
+      height: 0;
+      padding: 200px 0;
+     background-image: url(img/herobanner-medium.jpg);
+ }
+ 
+ .fav-game .content{
+      top: 20%;
+ }
+
+ .helios p, .triton p, .orion p,
+.monitors p, .gadgets p, .chair p{
+    font-size: 17px;
+}
+
+.lies-within a, .pers a, .fav-game a{
+    width: 25%;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.predator a span{
+    width: 20%;
+}
+ 
+ .predator a:first-child {
+     grid-column: 1/3;
+ }
+ 
+ .predator a:nth-child(2) {
+     grid-column: 4/6;
+     margin-top: 30px;
+ }
+ 
+ .predator a:last-child {
+     grid-row: 1;
+     grid-column: 6/8;
+     text-align: center;
+     align-self: center;
+ }
+ 
+ .predator a *{
+     max-width: 70%;
+ }
+ 
+
+ .predator a img{
+    display: block;
+ }
+
+ .predator a img:hover{
+     max-width: 75%;
+ }
+ 
+ .predator-triton a:first-child {
+     grid-column: 1/2;
+ }
+ 
+ .predator-triton a:nth-child(2) {
+     grid-column: 3/4;
+ }
+ 
+ .predator-triton a:nth-child(3) {
+     grid-column: 5/6;
+     grid-row: 1;
+     align-self: center;
+ }
+ 
+ .predator-triton a:last-child {
+     grid-row: 1;
+     align-self: center;
+     grid-column: 7/8;
+ }
+ 
+ .predator-triton a *{
+     align-self: center;
+     max-width: 70%;
+ }
+
+ .predator-triton a img{
+    display: block;
+}
+ 
+ .predator-triton a img:hover{
+     max-width: 75%;
+ }
+ 
+ .predator-triton a span{
+     margin: 0 auto;
+ 
+ }
+
+ .more-stuff {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.more-stuff a{
+    position: relative;
+    padding: 0 0 300px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: background 1s ;
+}
+
+
+ .chair a *{
+    max-width:25%;
+}
+
+.chair a img:hover{
+    max-width: 30%;
+}
+
+.footer-logos{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-logos svg:nth-child(4){
+    grid-row: 2;
+  grid-column: 2/3;
+}
+
+}
+
+@media screen and (min-width: 1024px) {
+    .firstHeader{
+        display: grid;
+       
+    }
+    
+    .lies-within{ 
+        padding: 210px 0;
+        width: 100%;
+        background-image: url(img/itlieswithin-large.jpg);
+    }
+       
+.lies-within h1{
+    font-family: Teco-bold;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.header .header-links{
+    display: block;
+    grid-column: 2/4;
+}
+
+.header .hamburger{
+    display: none;
+   }
+
+   .pers{
+    height: 0;
+    padding: 200px 0;
+    background-image: url(img/GPC_large.jpg);
+}
+
+.fav-game{
+    height: 0;
+    padding: 200px 0;
+   background-image: url(img/herobanner-large.jpg);
+}
+
+ 
+.predator a *{
+    max-width: 60%;
+}
+
+.more-stuff {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.more-stuff a{
+    padding: 0 0 300px;
+}
+
+
+.footer-links{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footer-links ul:nth-child(4){
+    grid-row: 2;
+   grid-column: 3/3;
+}
+
+.footer-header h5{
+    display: block;
+    text-align: left;
+    color: #fff;
+    cursor:text;
+ } 
+
+
+.footer-header span{
+    display: none;
+ }
+
+ .footer-links ul li{
+    background: none;
+    display: block;
+    text-align: left;
+    font-family: Teco-Light;
+    padding: 0 50px;
+  } 
+
+  .footer-links ul li:hover{
+    color: rgb(255, 255, 255, 0.8);;
+  } 
+
+  .footer-logos{
+      padding: 20px 60px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.footer-logos svg:nth-child(4){
+    grid-row: 1;
+  grid-column: 4/4;
+}
+
+.footer-sm-cp {
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+
+
+}
